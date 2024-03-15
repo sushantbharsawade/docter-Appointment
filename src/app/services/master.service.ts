@@ -12,4 +12,18 @@ export class MasterService {
   createNew (obj:any):Observable<any>{
     return this.http.post(this.apiEndpoint +"AddNewAppointment",obj)
   }
+
+
+  getAllAppointment():Observable<any>{
+    return this.http.get<Observable<any> >(this.apiEndpoint +".GetAllAppointments")
+  }
+
+  getAllTodaysAppointment():Observable<any>{
+    return this.http.get<Observable<any> >(this.apiEndpoint +".GetTodaysAppointments")
+  }
+
+
+  MarkAppointmentDone( appointmentId: number):Observable<any>{
+    return this.http.get<Observable<any> >(this.apiEndpoint +".MarkAppointmentDone?appointmentId" + appointmentId)
+  }
 }

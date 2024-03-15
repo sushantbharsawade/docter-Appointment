@@ -9,15 +9,15 @@ import { MasterService } from 'src/app/services/master.service';
 export class NewAppointmentComponent {
 
   appointmentobj :any ={
-    "name": "string",
-    "mobileNo": "string",
-    "city": "string",
+    "name": "",
+    "mobileNo": "",
+    "city": "",
     "age": 0,
-    "gender": "string",
+    "gender": "",
     "appointmentDate": "2024-03-15T06:42:25.241Z",
-    "appointmentTime": "string",
+    "appointmentTime": "",
     "isFirstVisit": true,
-    "naration": "string"
+    "naration": ""
   };
 
   constructor (private master:MasterService){  
@@ -27,7 +27,7 @@ export class NewAppointmentComponent {
     onSaveAppointment(){
       this.master.createNew(this.appointmentobj).subscribe((res:any)=>{
    if(res.result){
-    alert("Appointment Done");
+    alert("Appointment Done- & Appointment No is -" + res.data.aapp);
    }
       },errror =>{
 alert("API Error / Check Form");
